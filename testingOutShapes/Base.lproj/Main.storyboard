@@ -88,6 +88,9 @@
                                     <color key="titleColor" red="0.0" green="0.98624604940414429" blue="0.73715205362043856" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="BV1-FR-VrT" kind="show" id="hWr-lw-by2"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -104,4 +107,7 @@
             <point key="canvasLocation" x="1054" y="1016"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Z5q-q7-JUo"/>
+    </inferredMetricsTieBreakers>
 </document>
