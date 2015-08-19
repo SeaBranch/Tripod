@@ -136,7 +136,8 @@ class GameScene: SKScene {
                     }else{
                         self.requestArmForSKNode(sprt)
                     }
-                                    }
+                    
+                }
             }//
 //            sprite.xScale = 0.5
 //            sprite.yScale = 0.5
@@ -153,12 +154,15 @@ class GameScene: SKScene {
     
     func clearScene(){
         sphereNodes.removeAll(keepCapacity: false)
-        
+        //sphereNodes = []
         arm1Source = nil
         arm2Source = nil
         arm3Source = nil
         
         self.enemyArray.removeAll(keepCapacity: false)
+        //self.enemyArray = []
+//        removeAllChildren()
+
     }
     func signalDeath(){
         self.clearScene()
@@ -183,17 +187,17 @@ class GameScene: SKScene {
    
     func lookAtGoal(){
         let body = childNodeWithName("Body") as! SKSpriteNode
-        let eyestalk = body.childNodeWithName("EyeStalk")as! SKSpriteNode
-        let eyeWhite = eyestalk.childNodeWithName("white")as! SKSpriteNode
-        let eyeBall = eyeWhite.childNodeWithName("ball")as! SKSpriteNode
-        
+//        let eyestalk = body.childNodeWithName("EyeStalk")as! SKSpriteNode
+//        let eyeWhite = eyestalk.childNodeWithName("white")as! SKSpriteNode
+//        let eyeBall = eyeWhite.childNodeWithName("ball")as! SKSpriteNode
+//        
         let goal = childNodeWithName("Goal")as! SKSpriteNode
         
         let offX = goal.position.x - body.position.x
         let offY = goal.position.y - body.position.y
         let hyp = hypot(offX, offY)
         
-        let scaleX = offX/hyp
+        /*let scaleX = offX/hyp
         let scaleY = offY/hyp
         
         let thirdBody = body.size.width/300
@@ -201,21 +205,17 @@ class GameScene: SKScene {
         let thirdWhite = eyeWhite.size.width/300
         
         
-        let halfBody = body.size.width/2
-        let halfEye = eyestalk.size.width/2
-        let halfWhite = eyeWhite.size.width/2
+        eyestalk.position = CGPoint(x: body.size.width/2, y:body.size.height/2)
+        //eyeWhite.position = CGPoint(x: eyestalk.size.width/2, y: eyestalk.size.height/2)
+       // eyeBall.position = CGPoint(x: eyeWhite.size.width/2, y: eyeWhite.size.height/2 + 2)
         
-        let eyeX = halfBody+(scaleX*thirdBody)
-        let whiteX = halfBody+(scaleX*thirdEye)
-        let ballX = halfBody+(scaleX*thirdWhite)
-        
-        let eyeY = halfBody+(scaleY*thirdBody)
-        let whiteY = halfBody+(scaleY*thirdEye)
-        let ballY = halfBody+(scaleY*thirdWhite)
-        
-        eyestalk.position = CGPoint(x: 0.5+(scaleX/3), y: 0.5+(scaleY))
-        eyeWhite.position = CGPoint(x: 0.5+(scaleX/3), y: 0.5+(scaleY))
-        eyeBall.position = CGPoint(x: 0.5+(scaleX/3), y: 0.5+(scaleY))
+        let rotation = atan2(offY, offX)
+    
+        eyestalk.anchorPoint = CGPoint(x: 0.5, y: 0)
+        eyestalk.zRotation = rotation
+        //eyeWhite.zRotation = rotation
+        //eyeBall.zRotation = rotation
+        //eyeWhite.zRotation = 0*/
         
         if hyp < 200{
             self.signalWin()

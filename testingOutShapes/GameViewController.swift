@@ -48,6 +48,7 @@ class GameViewController: UIViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "youLived", name: "YouLivedNote", object: nil)
     }
     func youDied(){
+        
         self.performSegueWithIdentifier("YouDiedSegue", sender: self)
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
@@ -76,5 +77,9 @@ class GameViewController: UIViewController {
 
     override func prefersStatusBarHidden() -> Bool {
         return true
+    }
+    
+    @IBAction func unwind(sender:UIStoryboardSegue){
+        performSegueWithIdentifier("unwindForStart", sender: self)
     }
 }

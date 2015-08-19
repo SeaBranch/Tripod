@@ -10,6 +10,7 @@
 		4B874B911B84754900C7A189 /* Enemy.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B874B901B84754900C7A189 /* Enemy.png */; };
 		4B874B941B8486B000C7A189 /* tinyBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B874B931B8486B000C7A189 /* tinyBlack.png */; };
 		4B874B961B8486BF00C7A189 /* WhiteCircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B874B951B8486BF00C7A189 /* WhiteCircle.png */; };
+		4B874B981B84A22A00C7A189 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B874B971B84A22A00C7A189 /* StartViewController.swift */; };
 		4BF160351B8368490020715E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF160341B8368490020715E /* AppDelegate.swift */; };
 		4BF160371B8368490020715E /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4BF160361B8368490020715E /* GameScene.sks */; };
 		4BF160391B8368490020715E /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF160381B8368490020715E /* GameScene.swift */; };
@@ -40,6 +41,7 @@
 		4B874B901B84754900C7A189 /* Enemy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Enemy.png; sourceTree = "<group>"; };
 		4B874B931B8486B000C7A189 /* tinyBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tinyBlack.png; sourceTree = "<group>"; };
 		4B874B951B8486BF00C7A189 /* WhiteCircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WhiteCircle.png; sourceTree = "<group>"; };
+		4B874B971B84A22A00C7A189 /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		4BF1602F1B8368490020715E /* testingOutShapes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testingOutShapes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BF160331B8368490020715E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BF160341B8368490020715E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				4BF160361B8368490020715E /* GameScene.sks */,
 				4BF160381B8368490020715E /* GameScene.swift */,
 				4BF1603A1B8368490020715E /* GameViewController.swift */,
+				4B874B971B84A22A00C7A189 /* StartViewController.swift */,
 				4BF1603C1B8368490020715E /* Main.storyboard */,
 				4BF1603F1B8368490020715E /* Images.xcassets */,
 				4BF1605A1B83E3710020715E /* Arm.png */,
@@ -257,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4BF160391B8368490020715E /* GameScene.swift in Sources */,
+				4B874B981B84A22A00C7A189 /* StartViewController.swift in Sources */,
 				4BF1603B1B8368490020715E /* GameViewController.swift in Sources */,
 				4BF160351B8368490020715E /* AppDelegate.swift in Sources */,
 			);
