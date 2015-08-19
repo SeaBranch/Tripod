@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BV1-FR-VrT">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController id="BV1-FR-VrT" customClass="GameViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BV1-FR-VrT" customClass="GameViewController" customModule="testingOutShapes" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="maK-i9-Uhn"/>
                         <viewControllerLayoutGuide type="bottom" id="khH-OB-KpY"/>
@@ -17,9 +18,96 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="AVo-4q-f96" kind="show" identifier="YouDiedSegue" id="i06-yV-Cr9"/>
+                        <segue destination="8Uj-Mp-hXf" kind="show" identifier="YouLivedSegue" id="XGJ-cC-RSC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="ksm-rd-rYK">
+            <objects>
+                <viewController id="AVo-4q-f96" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="egB-1Q-Z8L"/>
+                        <viewControllerLayoutGuide type="bottom" id="mMM-Qm-f3c"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="M07-7o-Fy1">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fIr-KE-r5s">
+                                <rect key="frame" x="16" y="225" width="568" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="6xv-K6-jnt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="56"/>
+                                <state key="normal" title="YUP, YOU DEAD">
+                                    <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BV1-FR-VrT" kind="show" id="OfV-H5-gKd"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="fIr-KE-r5s" secondAttribute="centerY" id="PQu-Ys-ysd"/>
+                            <constraint firstItem="fIr-KE-r5s" firstAttribute="trailing" secondItem="M07-7o-Fy1" secondAttribute="trailingMargin" id="XYR-7x-dlG"/>
+                            <constraint firstItem="fIr-KE-r5s" firstAttribute="leading" secondItem="M07-7o-Fy1" secondAttribute="leadingMargin" id="lcu-8S-8o3"/>
+                            <constraint firstAttribute="centerX" secondItem="fIr-KE-r5s" secondAttribute="centerX" id="nk9-BB-HeY"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2hk-Y9-raB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1054" y="368"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="qJd-Bb-rwF">
+            <objects>
+                <viewController id="8Uj-Mp-hXf" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="03e-Va-Qkt"/>
+                        <viewControllerLayoutGuide type="bottom" id="h0D-iS-DLl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="E7Y-d6-X1d">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jtk-Fc-q8x">
+                                <rect key="frame" x="16" y="225" width="568" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="liA-zK-I34"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="56"/>
+                                <state key="normal" title="Goodie, You Lived">
+                                    <color key="titleColor" red="0.0" green="0.98624604940414429" blue="0.73715205362043856" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BV1-FR-VrT" kind="show" id="g6i-sg-9zh"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="Jtk-Fc-q8x" secondAttribute="centerX" id="IRG-Gf-Cau"/>
+                            <constraint firstItem="Jtk-Fc-q8x" firstAttribute="trailing" secondItem="E7Y-d6-X1d" secondAttribute="trailingMargin" id="LC3-T8-wbU"/>
+                            <constraint firstAttribute="centerY" secondItem="Jtk-Fc-q8x" secondAttribute="centerY" id="dsM-aN-jUU"/>
+                            <constraint firstItem="Jtk-Fc-q8x" firstAttribute="leading" secondItem="E7Y-d6-X1d" secondAttribute="leadingMargin" id="kvG-Md-yak"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tiY-xz-7Xb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1054" y="1016"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="g6i-sg-9zh"/>
+    </inferredMetricsTieBreakers>
 </document>

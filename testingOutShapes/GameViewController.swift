@@ -41,10 +41,21 @@ class GameViewController: UIViewController {
             
             /* Set the scale mode to scale to fit the window */
             scene.scaleMode = .AspectFill
-            
             skView.presentScene(scene)
+            
         }
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "youDied", name: "YouDiedNote", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "youLived", name: "YouLivedNote", object: nil)
     }
+    func youDied(){
+        self.performSegueWithIdentifier("YouDiedSegue", sender: self)
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    func youLived(){
+        self.performSegueWithIdentifier("YouLivedSegue", sender: self)
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+
 
     override func shouldAutorotate() -> Bool {
         return true

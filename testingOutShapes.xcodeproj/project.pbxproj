@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B874B911B84754900C7A189 /* Enemy.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B874B901B84754900C7A189 /* Enemy.png */; };
+		4B874B941B8486B000C7A189 /* tinyBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B874B931B8486B000C7A189 /* tinyBlack.png */; };
+		4B874B961B8486BF00C7A189 /* WhiteCircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B874B951B8486BF00C7A189 /* WhiteCircle.png */; };
 		4BF160351B8368490020715E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF160341B8368490020715E /* AppDelegate.swift */; };
 		4BF160371B8368490020715E /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4BF160361B8368490020715E /* GameScene.sks */; };
 		4BF160391B8368490020715E /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF160381B8368490020715E /* GameScene.swift */; };
@@ -15,6 +18,12 @@
 		4BF160401B8368490020715E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BF1603F1B8368490020715E /* Images.xcassets */; };
 		4BF160431B8368490020715E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BF160411B8368490020715E /* LaunchScreen.xib */; };
 		4BF1604F1B8368490020715E /* testingOutShapesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF1604E1B8368490020715E /* testingOutShapesTests.swift */; };
+		4BF1605B1B83E3710020715E /* Arm.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BF1605A1B83E3710020715E /* Arm.png */; };
+		4BF1605D1B83E3760020715E /* Body.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BF1605C1B83E3760020715E /* Body.png */; };
+		4BF1605F1B8440470020715E /* BlackCircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BF1605E1B8440470020715E /* BlackCircle.png */; };
+		4BF160611B84635E0020715E /* armWithBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BF160601B84635E0020715E /* armWithBack.png */; };
+		4BF160631B8464500020715E /* ArmBacked.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BF160621B8464500020715E /* ArmBacked.png */; };
+		4BF160651B8467280020715E /* LightBacking.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BF160641B8467280020715E /* LightBacking.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4B874B901B84754900C7A189 /* Enemy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Enemy.png; sourceTree = "<group>"; };
+		4B874B931B8486B000C7A189 /* tinyBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tinyBlack.png; sourceTree = "<group>"; };
+		4B874B951B8486BF00C7A189 /* WhiteCircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WhiteCircle.png; sourceTree = "<group>"; };
 		4BF1602F1B8368490020715E /* testingOutShapes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testingOutShapes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BF160331B8368490020715E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BF160341B8368490020715E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -40,6 +52,12 @@
 		4BF160481B8368490020715E /* testingOutShapesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = testingOutShapesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BF1604D1B8368490020715E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BF1604E1B8368490020715E /* testingOutShapesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testingOutShapesTests.swift; sourceTree = "<group>"; };
+		4BF1605A1B83E3710020715E /* Arm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Arm.png; sourceTree = "<group>"; };
+		4BF1605C1B83E3760020715E /* Body.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Body.png; sourceTree = "<group>"; };
+		4BF1605E1B8440470020715E /* BlackCircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BlackCircle.png; sourceTree = "<group>"; };
+		4BF160601B84635E0020715E /* armWithBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = armWithBack.png; sourceTree = "<group>"; };
+		4BF160621B8464500020715E /* ArmBacked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ArmBacked.png; sourceTree = "<group>"; };
+		4BF160641B8467280020715E /* LightBacking.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LightBacking.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +105,15 @@
 				4BF1603A1B8368490020715E /* GameViewController.swift */,
 				4BF1603C1B8368490020715E /* Main.storyboard */,
 				4BF1603F1B8368490020715E /* Images.xcassets */,
+				4BF1605A1B83E3710020715E /* Arm.png */,
+				4BF160621B8464500020715E /* ArmBacked.png */,
+				4BF160601B84635E0020715E /* armWithBack.png */,
+				4BF1605C1B83E3760020715E /* Body.png */,
+				4BF160641B8467280020715E /* LightBacking.png */,
+				4B874B901B84754900C7A189 /* Enemy.png */,
+				4B874B931B8486B000C7A189 /* tinyBlack.png */,
+				4B874B951B8486BF00C7A189 /* WhiteCircle.png */,
+				4BF1605E1B8440470020715E /* BlackCircle.png */,
 				4BF160411B8368490020715E /* LaunchScreen.xib */,
 				4BF160321B8368490020715E /* Supporting Files */,
 			);
@@ -199,9 +226,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				4BF160431B8368490020715E /* LaunchScreen.xib in Resources */,
+				4B874B961B8486BF00C7A189 /* WhiteCircle.png in Resources */,
 				4BF160401B8368490020715E /* Images.xcassets in Resources */,
 				4BF160371B8368490020715E /* GameScene.sks in Resources */,
+				4B874B941B8486B000C7A189 /* tinyBlack.png in Resources */,
+				4BF160631B8464500020715E /* ArmBacked.png in Resources */,
+				4B874B911B84754900C7A189 /* Enemy.png in Resources */,
 				4BF1603E1B8368490020715E /* Main.storyboard in Resources */,
+				4BF1605B1B83E3710020715E /* Arm.png in Resources */,
+				4BF1605F1B8440470020715E /* BlackCircle.png in Resources */,
+				4BF160651B8467280020715E /* LightBacking.png in Resources */,
+				4BF1605D1B83E3760020715E /* Body.png in Resources */,
+				4BF160611B84635E0020715E /* armWithBack.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,6 +455,7 @@
 				4BF160541B8368490020715E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4BF160551B8368490020715E /* Build configuration list for PBXNativeTarget "testingOutShapesTests" */ = {
 			isa = XCConfigurationList;
@@ -427,6 +464,7 @@
 				4BF160571B8368490020715E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
