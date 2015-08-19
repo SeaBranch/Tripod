@@ -150,10 +150,24 @@ class GameScene: SKScene {
         }
     }
     
+    
+    func clearScene(){
+        sphereNodes.removeAll(keepCapacity: false)
+        
+        arm1Source = nil
+        arm2Source = nil
+        arm3Source = nil
+        
+        self.enemyArray.removeAll(keepCapacity: false)
+    }
     func signalDeath(){
+        self.clearScene()
+        
         NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "YouDiedNote", object: nil))
     }
     func signalWin(){
+        self.clearScene()
+
         NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: "YouLivedNote", object: nil))
     }
     
