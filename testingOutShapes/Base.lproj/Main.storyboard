@@ -85,7 +85,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="56"/>
                                 <state key="normal" title="Goodie, You Lived">
-                                    <color key="titleColor" red="0.0" green="0.98624604940414429" blue="0.73715205362043856" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.0" green="0.98624604940414429" blue="0.44609821795117705" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
