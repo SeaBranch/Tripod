@@ -10,8 +10,8 @@ import SpriteKit
 import UIKit
 
 class GameScene: SKScene {
-    
-    var spherePoints = [CGPointMake(300,135),CGPointMake(230,320), CGPointMake(315,510),CGPointMake(215,630),
+    var spherePoints = Array<CGPoint>()
+    /*var spherePoints = [CGPointMake(300,135),CGPointMake(230,320), CGPointMake(315,510),CGPointMake(215,630),
         CGPointMake(270,710),CGPointMake(230,680), CGPointMake(315,810),CGPointMake(210,910), CGPointMake(140, 1010),
         CGPointMake(350, 250),CGPointMake(200, 450),CGPointMake(235, 575),CGPointMake(130, 760),CGPointMake(250, 990),
         CGPointMake(130, 1100),CGPointMake(350, 1150),CGPointMake(650, 1050),CGPointMake(800, 1150),CGPointMake(680, 1300),
@@ -22,7 +22,8 @@ class GameScene: SKScene {
 //        CGPointMake(350, 250),CGPointMake(200, 450),CGPointMake(235, 575),CGPointMake(130, 760),CGPointMake(250, 990),
 //        CGPointMake(130, 1100),CGPointMake(350, 1150),CGPointMake(650, 1050),CGPointMake(800, 1150),CGPointMake(680, 1300),
 //        CGPointMake(760, 1480),CGPointMake(630, 1390),CGPointMake(400, 1500),CGPointMake(276, 1710),CGPointMake(375, 1920)]
-//    
+//
+*/
     
     var sphereNodes = Array<SKSpriteNode>()
     
@@ -36,20 +37,30 @@ class GameScene: SKScene {
         //view.showsPhysics = true
         self.backgroundColor = UIColor(red: 0.2, green: 0, blue: 0.2, alpha: 1)
         self.addSpheresToScene()
-        self.beginEnemyInvasion()
+        //self.beginEnemyInvasion()
     }
     func addSpheresToScene(){
+       
         
         var sphereNum:Int = 2
         let sphereNode1:SKSpriteNode = childNodeWithName("Sphere1") as! SKSpriteNode
         self.sphereNodes.append(sphereNode1)
-        let field1 = sphereNode1.childNodeWithName("field") as! SKFieldNode
-        field1.strength = pullStrength
-        field1.falloff = 0
-        field1.categoryBitMask = uint(self.maskForArm(1))
-        self.arm1Source = sphereNode1.name
+//        let field1 = sphereNode1.childNodeWithName("field") as! SKFieldNode
+//        field1.strength = pullStrength
+//        field1.falloff = 0
+//        field1.categoryBitMask = uint(self.maskForArm(1))
+//        self.arm1Source = sphereNode1.name
         
+        self.spherePoints = generateMapFromPoint(sphereNode1.position)
+        var firstLoop = true
         for pt:CGPoint in self.spherePoints{
+            if sphereNum == self.spherePoints.count{
+                let goal = childNodeWithName("Goal")!
+                goal.position = pt
+            }else if firstLoop{
+                firstLoop = false
+
+            }else{
             let nextSphereNode = sphereNode1.copy() as! SKSpriteNode
             nextSphereNode.name = "Sphere\(sphereNum)"
             nextSphereNode.position = pt
@@ -61,11 +72,70 @@ class GameScene: SKScene {
             field.categoryBitMask = 0
             
             sphereNum+=1
+            }
         }
         self.attachArmToSphere(1, sphere: sphereNode1)
 
     }
     
+    func distPtToPt(pt1:CGPoint, pt2:CGPoint)->CGFloat{
+        let offX = pt2.x - pt1.x
+        let offY = pt2.y - pt1.y
+        
+        return hypot(offY, offX)
+    }
+    
+    
+    func generateMapFromPoint(pt:CGPoint)->Array<CGPoint>{
+        var newSpherePoints = Array<CGPoint>()
+        newSpherePoints.append(pt)
+        var start = pt
+        var currentFailCount = 0
+        
+        while newSpherePoints.count < 100{
+            
+            let rndX:CGFloat = CGFloat(arc4random()%100) + 120.0
+            let multX:CGFloat = (arc4random()%2 == 1) ? 1:-1
+            let rndY:CGFloat = CGFloat(arc4random()%100) + 120.0
+            let multY:CGFloat = (arc4random()%2 == 1) ? 1:-1
+            
+            let offX = rndX * multX
+            let offY = rndY * multY
+            let newPt = CGPoint(x:start.x + offX, y: start.y + offY)
+            
+            var goodPt = true
+            
+            if currentFailCount > 50{
+                currentFailCount = 0
+                let ind = Int(arc4random()%UInt32(self.sphereNodes.count))
+                start = (self.sphereNodes[ind] as SKSpriteNode).position
+            }
+            
+            for p in newSpherePoints{
+                if !(distPtToPt(p, pt2: newPt) > 150){
+                    goodPt = false
+
+                    break
+                }
+//                }else if newPt.x > 1200 || newPt.x < 0 || newPt.y > 1200 || newPt.y < 0{
+//                    goodPt = false
+//                    print(" bad point ")
+//
+//                    break
+//                }
+            }
+            if goodPt{
+                newSpherePoints.append(newPt)
+                start = newPt
+                print(" good point ")
+            }else{
+                print(" bad point ")
+
+                currentFailCount+=1
+            }
+        }
+        return newSpherePoints
+    }
     
     func removeArmFromSphere(sphere:SKSpriteNode){
         let field = sphere.childNodeWithName("field") as! SKFieldNode
@@ -186,38 +256,48 @@ class GameScene: SKScene {
     }
    
     func lookAtGoal(){
+        print("\nlook at goal\n")
         let body = childNodeWithName("Body") as! SKSpriteNode
-//        let eyestalk = body.childNodeWithName("EyeStalk")as! SKSpriteNode
-//        let eyeWhite = eyestalk.childNodeWithName("white")as! SKSpriteNode
-//        let eyeBall = eyeWhite.childNodeWithName("ball")as! SKSpriteNode
+        let bodyCenter = CGPoint(x: (body.size.width/2) * body.xScale, y: (body.size.height/2) * body.yScale)
+        
+        let eyestalk = body.childNodeWithName("EyeStalk")as! SKSpriteNode
+        let eyeWhite = eyestalk.childNodeWithName("white")as! SKSpriteNode
+        let eyeBall = eyeWhite.childNodeWithName("ball")as! SKSpriteNode
 //        
         let goal = childNodeWithName("Goal")as! SKSpriteNode
-        
+        //let goal = childNodeWithName("testTarget")as! SKSpriteNode
         let offX = goal.position.x - body.position.x
         let offY = goal.position.y - body.position.y
         let hyp = hypot(offX, offY)
         
-        /*let scaleX = offX/hyp
-        let scaleY = offY/hyp
+        let normal = CGPoint(x: offX/hyp, y: offY/hyp)
         
-        let thirdBody = body.size.width/300
-        let thirdEye = eyestalk.size.width/300
-        let thirdWhite = eyeWhite.size.width/300
+        let fifthEye = (eyestalk.size.width/5) * eyestalk.xScale
+        let fourthWhite = (eyestalk.size.width/4) * eyeWhite.xScale
         
+        let halfEye = (eyestalk.size.width/2) * eyestalk.xScale
+        let halfWhite = (eyestalk.size.width/2) * eyeWhite.xScale
         
-        eyestalk.position = CGPoint(x: body.size.width/2, y:body.size.height/2)
-        //eyeWhite.position = CGPoint(x: eyestalk.size.width/2, y: eyestalk.size.height/2)
-       // eyeBall.position = CGPoint(x: eyeWhite.size.width/2, y: eyeWhite.size.height/2 + 2)
+        let eyeWhiteToStalk = eyestalk.size.width / eyeWhite.size.width
+        let eyeBallToWhite = eyeWhite.size.width / eyeBall.size.width
         
-        let rotation = atan2(offY, offX)
-    
-        eyestalk.anchorPoint = CGPoint(x: 0.5, y: 0)
-        eyestalk.zRotation = rotation
-        //eyeWhite.zRotation = rotation
-        //eyeBall.zRotation = rotation
-        //eyeWhite.zRotation = 0*/
+        eyestalk.anchorPoint = CGPoint(x:0.5 + (0.5 * normal.x), y:0.5 + (0.5 * normal.y))
+        eyeWhite.anchorPoint = CGPoint(x:0.5 + (1.2 * normal.x * eyeWhiteToStalk), y:0.5 + (1.2 * normal.y * eyeWhiteToStalk))
+        eyeBall.anchorPoint = CGPoint(x:0.5 + (0.6 * normal.x * eyeBallToWhite), y:0.5 + (0.6 * normal.y * eyeBallToWhite))
+        //eyeWhite.anchorPoint = CGPoint(x:1 - (0.2 * normal.x), y:1 - (0.2 * normal.y))
+        //eyeBall.anchorPoint = CGPoint(x: 0.5 + (0.3 * normal.x), y:0.5 + (0.3 * normal.y))
+       // eyeWhite.anchorPoint = CGPoint(x:1.3, y:1.3)
+        //eyeBall.anchorPoint = CGPoint(x: 2.45, y:2.45)
         
-        if hyp < 200{
+        eyestalk.zRotation =  (-body.zRotation) + CGFloat(M_PI)
+//        eyeWhite.zRotation = -CGFloat(M_PI)
+//        eyeBall.zRotation = CGFloat(M_PI)
+        //eyeBall.zRotation =  -CGFloat(M_PI)
+        //eyestalk.position = CGPoint(x: bodyCenter.x + (normal.x * (halfEye * 1.2)), y: bodyCenter.y + (normal.y * (halfEye * 1.2)))
+        //eyeWhite.position = CGPoint(x: halfEye + (normal.x * fifthEye), y: halfEye + (normal.y * fifthEye))
+        //eyeBall.position = CGPoint(x: halfWhite + (normal.x * fourthWhite), y: halfWhite + (normal.y * fourthWhite))
+        
+        if hyp < 150{
             self.signalWin()
         }
     }
@@ -323,9 +403,14 @@ class GameScene: SKScene {
         }
         
         for enemy in enemyArray{
-            let zone = enemy.childNodeWithName("field")!
-            if zone.intersectsNode(body){
+            let offX = enemy.position.x - body.position.x
+            let offY = enemy.position.y - body.position.y
+            
+            let distance = hypot(offX, offY)
+            
+            if distance < 80{
                 self.signalDeath()
+                break
             }
         }
     }

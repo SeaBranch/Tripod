@@ -7,10 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B3D19F61B8BDD790082F8D4 /* TripodBody.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B3D19F11B8BDD790082F8D4 /* TripodBody.png */; };
+		4B3D19F71B8BDD790082F8D4 /* TripodEyeStalk.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B3D19F21B8BDD790082F8D4 /* TripodEyeStalk.png */; };
+		4B3D19F81B8BDD790082F8D4 /* TripodEyeWhite.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B3D19F31B8BDD790082F8D4 /* TripodEyeWhite.png */; };
+		4B3D19F91B8BDD790082F8D4 /* TripodPupile.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B3D19F41B8BDD790082F8D4 /* TripodPupile.png */; };
+		4B3D19FB1B8BEA5F0082F8D4 /* TripodStretchedArm.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B3D19FA1B8BEA5F0082F8D4 /* TripodStretchedArm.png */; };
 		4B874B911B84754900C7A189 /* Enemy.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B874B901B84754900C7A189 /* Enemy.png */; };
 		4B874B941B8486B000C7A189 /* tinyBlack.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B874B931B8486B000C7A189 /* tinyBlack.png */; };
 		4B874B961B8486BF00C7A189 /* WhiteCircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 4B874B951B8486BF00C7A189 /* WhiteCircle.png */; };
 		4B874B981B84A22A00C7A189 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B874B971B84A22A00C7A189 /* StartViewController.swift */; };
+		4B874B991B84CA0600C7A189 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4BF160331B8368490020715E /* Info.plist */; };
 		4BF160351B8368490020715E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF160341B8368490020715E /* AppDelegate.swift */; };
 		4BF160371B8368490020715E /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4BF160361B8368490020715E /* GameScene.sks */; };
 		4BF160391B8368490020715E /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF160381B8368490020715E /* GameScene.swift */; };
@@ -18,12 +24,11 @@
 		4BF1603E1B8368490020715E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BF1603C1B8368490020715E /* Main.storyboard */; };
 		4BF160401B8368490020715E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BF1603F1B8368490020715E /* Images.xcassets */; };
 		4BF160431B8368490020715E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BF160411B8368490020715E /* LaunchScreen.xib */; };
-		4BF1604F1B8368490020715E /* testingOutShapesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF1604E1B8368490020715E /* testingOutShapesTests.swift */; };
+		4BF1604F1B8368490020715E /* TripodTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF1604E1B8368490020715E /* TripodTests.swift */; };
 		4BF1605B1B83E3710020715E /* Arm.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BF1605A1B83E3710020715E /* Arm.png */; };
 		4BF1605D1B83E3760020715E /* Body.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BF1605C1B83E3760020715E /* Body.png */; };
 		4BF1605F1B8440470020715E /* BlackCircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BF1605E1B8440470020715E /* BlackCircle.png */; };
 		4BF160611B84635E0020715E /* armWithBack.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BF160601B84635E0020715E /* armWithBack.png */; };
-		4BF160631B8464500020715E /* ArmBacked.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BF160621B8464500020715E /* ArmBacked.png */; };
 		4BF160651B8467280020715E /* LightBacking.png in Resources */ = {isa = PBXBuildFile; fileRef = 4BF160641B8467280020715E /* LightBacking.png */; };
 /* End PBXBuildFile section */
 
@@ -33,16 +38,21 @@
 			containerPortal = 4BF160271B8368490020715E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 4BF1602E1B8368490020715E;
-			remoteInfo = testingOutShapes;
+			remoteInfo = Tripod;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4B3D19F11B8BDD790082F8D4 /* TripodBody.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TripodBody.png; sourceTree = "<group>"; };
+		4B3D19F21B8BDD790082F8D4 /* TripodEyeStalk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TripodEyeStalk.png; sourceTree = "<group>"; };
+		4B3D19F31B8BDD790082F8D4 /* TripodEyeWhite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TripodEyeWhite.png; sourceTree = "<group>"; };
+		4B3D19F41B8BDD790082F8D4 /* TripodPupile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TripodPupile.png; sourceTree = "<group>"; };
+		4B3D19FA1B8BEA5F0082F8D4 /* TripodStretchedArm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TripodStretchedArm.png; sourceTree = "<group>"; };
 		4B874B901B84754900C7A189 /* Enemy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Enemy.png; sourceTree = "<group>"; };
 		4B874B931B8486B000C7A189 /* tinyBlack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tinyBlack.png; sourceTree = "<group>"; };
 		4B874B951B8486BF00C7A189 /* WhiteCircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WhiteCircle.png; sourceTree = "<group>"; };
 		4B874B971B84A22A00C7A189 /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
-		4BF1602F1B8368490020715E /* testingOutShapes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testingOutShapes.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4BF1602F1B8368490020715E /* Tripod.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tripod.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BF160331B8368490020715E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BF160341B8368490020715E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4BF160361B8368490020715E /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -51,14 +61,13 @@
 		4BF1603D1B8368490020715E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4BF1603F1B8368490020715E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4BF160421B8368490020715E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		4BF160481B8368490020715E /* testingOutShapesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = testingOutShapesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4BF160481B8368490020715E /* TripodTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TripodTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BF1604D1B8368490020715E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4BF1604E1B8368490020715E /* testingOutShapesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testingOutShapesTests.swift; sourceTree = "<group>"; };
+		4BF1604E1B8368490020715E /* TripodTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripodTests.swift; sourceTree = "<group>"; };
 		4BF1605A1B83E3710020715E /* Arm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Arm.png; sourceTree = "<group>"; };
 		4BF1605C1B83E3760020715E /* Body.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Body.png; sourceTree = "<group>"; };
 		4BF1605E1B8440470020715E /* BlackCircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BlackCircle.png; sourceTree = "<group>"; };
 		4BF160601B84635E0020715E /* armWithBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = armWithBack.png; sourceTree = "<group>"; };
-		4BF160621B8464500020715E /* ArmBacked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ArmBacked.png; sourceTree = "<group>"; };
 		4BF160641B8467280020715E /* LightBacking.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LightBacking.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,8 +92,8 @@
 		4BF160261B8368490020715E = {
 			isa = PBXGroup;
 			children = (
-				4BF160311B8368490020715E /* testingOutShapes */,
-				4BF1604B1B8368490020715E /* testingOutShapesTests */,
+				4BF160311B8368490020715E /* Tripod */,
+				4BF1604B1B8368490020715E /* TripodTests */,
 				4BF160301B8368490020715E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -92,13 +101,13 @@
 		4BF160301B8368490020715E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4BF1602F1B8368490020715E /* testingOutShapes.app */,
-				4BF160481B8368490020715E /* testingOutShapesTests.xctest */,
+				4BF1602F1B8368490020715E /* Tripod.app */,
+				4BF160481B8368490020715E /* TripodTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4BF160311B8368490020715E /* testingOutShapes */ = {
+		4BF160311B8368490020715E /* Tripod */ = {
 			isa = PBXGroup;
 			children = (
 				4BF160341B8368490020715E /* AppDelegate.swift */,
@@ -109,18 +118,22 @@
 				4BF1603C1B8368490020715E /* Main.storyboard */,
 				4BF1603F1B8368490020715E /* Images.xcassets */,
 				4BF1605A1B83E3710020715E /* Arm.png */,
-				4BF160621B8464500020715E /* ArmBacked.png */,
 				4BF160601B84635E0020715E /* armWithBack.png */,
 				4BF1605C1B83E3760020715E /* Body.png */,
 				4BF160641B8467280020715E /* LightBacking.png */,
+				4B3D19F11B8BDD790082F8D4 /* TripodBody.png */,
+				4B3D19F21B8BDD790082F8D4 /* TripodEyeStalk.png */,
+				4B3D19F31B8BDD790082F8D4 /* TripodEyeWhite.png */,
+				4B3D19F41B8BDD790082F8D4 /* TripodPupile.png */,
 				4B874B901B84754900C7A189 /* Enemy.png */,
 				4B874B931B8486B000C7A189 /* tinyBlack.png */,
+				4B3D19FA1B8BEA5F0082F8D4 /* TripodStretchedArm.png */,
 				4B874B951B8486BF00C7A189 /* WhiteCircle.png */,
 				4BF1605E1B8440470020715E /* BlackCircle.png */,
 				4BF160411B8368490020715E /* LaunchScreen.xib */,
 				4BF160321B8368490020715E /* Supporting Files */,
 			);
-			path = testingOutShapes;
+			path = Tripod;
 			sourceTree = "<group>";
 		};
 		4BF160321B8368490020715E /* Supporting Files */ = {
@@ -131,13 +144,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		4BF1604B1B8368490020715E /* testingOutShapesTests */ = {
+		4BF1604B1B8368490020715E /* TripodTests */ = {
 			isa = PBXGroup;
 			children = (
-				4BF1604E1B8368490020715E /* testingOutShapesTests.swift */,
+				4BF1604E1B8368490020715E /* TripodTests.swift */,
 				4BF1604C1B8368490020715E /* Supporting Files */,
 			);
-			path = testingOutShapesTests;
+			path = TripodTests;
 			sourceTree = "<group>";
 		};
 		4BF1604C1B8368490020715E /* Supporting Files */ = {
@@ -151,9 +164,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4BF1602E1B8368490020715E /* testingOutShapes */ = {
+		4BF1602E1B8368490020715E /* Tripod */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4BF160521B8368490020715E /* Build configuration list for PBXNativeTarget "testingOutShapes" */;
+			buildConfigurationList = 4BF160521B8368490020715E /* Build configuration list for PBXNativeTarget "Tripod" */;
 			buildPhases = (
 				4BF1602B1B8368490020715E /* Sources */,
 				4BF1602C1B8368490020715E /* Frameworks */,
@@ -163,14 +176,14 @@
 			);
 			dependencies = (
 			);
-			name = testingOutShapes;
-			productName = testingOutShapes;
-			productReference = 4BF1602F1B8368490020715E /* testingOutShapes.app */;
+			name = Tripod;
+			productName = Tripod;
+			productReference = 4BF1602F1B8368490020715E /* Tripod.app */;
 			productType = "com.apple.product-type.application";
 		};
-		4BF160471B8368490020715E /* testingOutShapesTests */ = {
+		4BF160471B8368490020715E /* TripodTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4BF160551B8368490020715E /* Build configuration list for PBXNativeTarget "testingOutShapesTests" */;
+			buildConfigurationList = 4BF160551B8368490020715E /* Build configuration list for PBXNativeTarget "TripodTests" */;
 			buildPhases = (
 				4BF160441B8368490020715E /* Sources */,
 				4BF160451B8368490020715E /* Frameworks */,
@@ -181,9 +194,9 @@
 			dependencies = (
 				4BF1604A1B8368490020715E /* PBXTargetDependency */,
 			);
-			name = testingOutShapesTests;
-			productName = testingOutShapesTests;
-			productReference = 4BF160481B8368490020715E /* testingOutShapesTests.xctest */;
+			name = TripodTests;
+			productName = TripodTests;
+			productReference = 4BF160481B8368490020715E /* TripodTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -205,7 +218,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4BF1602A1B8368490020715E /* Build configuration list for PBXProject "testingOutShapes" */;
+			buildConfigurationList = 4BF1602A1B8368490020715E /* Build configuration list for PBXProject "Tripod" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -218,8 +231,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4BF1602E1B8368490020715E /* testingOutShapes */,
-				4BF160471B8368490020715E /* testingOutShapesTests */,
+				4BF1602E1B8368490020715E /* Tripod */,
+				4BF160471B8368490020715E /* TripodTests */,
 			);
 		};
 /* End PBXProject section */
@@ -230,11 +243,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				4BF160431B8368490020715E /* LaunchScreen.xib in Resources */,
+				4B3D19FB1B8BEA5F0082F8D4 /* TripodStretchedArm.png in Resources */,
+				4B3D19F61B8BDD790082F8D4 /* TripodBody.png in Resources */,
 				4B874B961B8486BF00C7A189 /* WhiteCircle.png in Resources */,
 				4BF160401B8368490020715E /* Images.xcassets in Resources */,
 				4BF160371B8368490020715E /* GameScene.sks in Resources */,
+				4B3D19F71B8BDD790082F8D4 /* TripodEyeStalk.png in Resources */,
 				4B874B941B8486B000C7A189 /* tinyBlack.png in Resources */,
-				4BF160631B8464500020715E /* ArmBacked.png in Resources */,
+				4B874B991B84CA0600C7A189 /* Info.plist in Resources */,
+				4B3D19F81B8BDD790082F8D4 /* TripodEyeWhite.png in Resources */,
+				4B3D19F91B8BDD790082F8D4 /* TripodPupile.png in Resources */,
 				4B874B911B84754900C7A189 /* Enemy.png in Resources */,
 				4BF1603E1B8368490020715E /* Main.storyboard in Resources */,
 				4BF1605B1B83E3710020715E /* Arm.png in Resources */,
@@ -270,7 +288,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4BF1604F1B8368490020715E /* testingOutShapesTests.swift in Sources */,
+				4BF1604F1B8368490020715E /* TripodTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,7 +297,7 @@
 /* Begin PBXTargetDependency section */
 		4BF1604A1B8368490020715E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4BF1602E1B8368490020715E /* testingOutShapes */;
+			target = 4BF1602E1B8368490020715E /* Tripod */;
 			targetProxy = 4BF160491B8368490020715E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -393,9 +411,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = testingOutShapes/Info.plist;
+				INFOPLIST_FILE = Tripod/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Tripod;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -406,9 +424,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = testingOutShapes/Info.plist;
+				INFOPLIST_FILE = Tripod/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Tripod;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
@@ -425,10 +443,10 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = testingOutShapesTests/Info.plist;
+				INFOPLIST_FILE = TripodTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/testingOutShapes.app/testingOutShapes";
+				PRODUCT_NAME = TripodTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tripod.app/Tripod";
 			};
 			name = Debug;
 		};
@@ -440,17 +458,17 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = testingOutShapesTests/Info.plist;
+				INFOPLIST_FILE = TripodTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/testingOutShapes.app/testingOutShapes";
+				PRODUCT_NAME = TripodTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Tripod.app/Tripod";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4BF1602A1B8368490020715E /* Build configuration list for PBXProject "testingOutShapes" */ = {
+		4BF1602A1B8368490020715E /* Build configuration list for PBXProject "Tripod" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4BF160501B8368490020715E /* Debug */,
@@ -459,7 +477,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4BF160521B8368490020715E /* Build configuration list for PBXNativeTarget "testingOutShapes" */ = {
+		4BF160521B8368490020715E /* Build configuration list for PBXNativeTarget "Tripod" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4BF160531B8368490020715E /* Debug */,
@@ -468,7 +486,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4BF160551B8368490020715E /* Build configuration list for PBXNativeTarget "testingOutShapesTests" */ = {
+		4BF160551B8368490020715E /* Build configuration list for PBXNativeTarget "TripodTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4BF160561B8368490020715E /* Debug */,
