@@ -32,15 +32,17 @@ class GameScene: SKScene {
     var arm3Source:String?
     
     let pullStrength:Float = 4.2
-    
+    var stopPresentation = false
     override func didMoveToView(view: SKView) {
         //view.showsPhysics = true
         self.backgroundColor = UIColor(red: 0.2, green: 0, blue: 0.2, alpha: 1)
+        self.beginEnemyInvasion()
         self.addSpheresToScene()
-        //self.beginEnemyInvasion()
     }
     func addSpheresToScene(){
-       
+        if stopPresentation{
+            return
+        }
         
         var sphereNum:Int = 2
         let sphereNode1:SKSpriteNode = childNodeWithName("Sphere1") as! SKSpriteNode
@@ -87,11 +89,11 @@ class GameScene: SKScene {
     
     
     func generateMapFromPoint(pt:CGPoint)->Array<CGPoint>{
+        
         var newSpherePoints = Array<CGPoint>()
         newSpherePoints.append(pt)
         var start = pt
-        var currentFailCount = 0
-        
+        var badPtInARow = 0
         while newSpherePoints.count < 100{
             
             let rndX:CGFloat = CGFloat(arc4random()%100) + 120.0
@@ -105,11 +107,11 @@ class GameScene: SKScene {
             
             var goodPt = true
             
-            if currentFailCount > 50{
-                currentFailCount = 0
-                let ind = Int(arc4random()%UInt32(self.sphereNodes.count))
-                start = (self.sphereNodes[ind] as SKSpriteNode).position
-            }
+//            if currentFailCount > 50{
+//                currentFailCount = 0
+//                let ind = Int(arc4random()%UInt32(self.sphereNodes.count))
+//                start = (self.sphereNodes[ind] as SKSpriteNode).position
+//            }
             
             for p in newSpherePoints{
                 if !(distPtToPt(p, pt2: newPt) > 150){
@@ -128,16 +130,27 @@ class GameScene: SKScene {
                 newSpherePoints.append(newPt)
                 start = newPt
                 print(" good point ")
+                badPtInARow = 0
+                
             }else{
-                print(" bad point ")
 
-                currentFailCount+=1
+                badPtInARow+=1
+                print("bad point \(badPtInARow)")
+                if badPtInARow > 80{
+                    //newSpherePoints.removeAll(keepCapacity: false)
+                    badPtInARow = 0
+                    start = newSpherePoints[newSpherePoints.count/2]
+                    break
+                }
             }
         }
         return newSpherePoints
     }
     
     func removeArmFromSphere(sphere:SKSpriteNode){
+        if stopPresentation{
+            return
+        }
         let field = sphere.childNodeWithName("field") as! SKFieldNode
         field.strength = pullStrength
         field.falloff = 0
@@ -157,6 +170,9 @@ class GameScene: SKScene {
     }
     
     func attachArmToSphere(armNum:Int,sphere:SKSpriteNode){
+        if stopPresentation{
+            return
+        }
         let field = sphere.childNodeWithName("field") as! SKFieldNode
         field.strength = pullStrength
         field.falloff = 0
@@ -223,6 +239,23 @@ class GameScene: SKScene {
     
     
     func clearScene(){
+        stopPresentation = true
+        for sp in sphereNodes{
+            sp.removeAllActions()
+            sp.removeAllChildren()
+            sp.removeFromParent()
+        }
+        for en in enemyArray{
+            en.removeAllActions()
+            en.removeAllChildren()
+            en.removeFromParent()
+        }
+        for remaining in self.children{
+            remaining.removeAllActions()
+            remaining.removeAllChildren()
+            remaining.removeFromParent()
+        }
+        
         sphereNodes.removeAll(keepCapacity: false)
         //sphereNodes = []
         arm1Source = nil
@@ -256,6 +289,9 @@ class GameScene: SKScene {
     }
    
     func lookAtGoal(){
+        if stopPresentation{
+            return
+        }
         print("\nlook at goal\n")
         let body = childNodeWithName("Body") as! SKSpriteNode
         let bodyCenter = CGPoint(x: (body.size.width/2) * body.xScale, y: (body.size.height/2) * body.yScale)
@@ -298,11 +334,14 @@ class GameScene: SKScene {
         //eyeBall.position = CGPoint(x: halfWhite + (normal.x * fourthWhite), y: halfWhite + (normal.y * fourthWhite))
         
         if hyp < 150{
+            self.stopPresentation = true
             self.signalWin()
         }
     }
     override func didSimulatePhysics() {
-        
+        if stopPresentation{
+            return
+        }
         self.lookAtGoal()
         
         if (NSDate().timeIntervalSinceDate(lastEnemyDate)) > enemySchedule[enemyProgress]{
@@ -318,99 +357,105 @@ class GameScene: SKScene {
             enemy.physicsBody!.applyForce(CGVector(dx: (body.position.x - enemy.position.x), dy: (body.position.y - enemy.position.y)))
         }
         /* Called before each frame is rendered */
-        let body = childNodeWithName("Body")!
-//        
-//        self.position = body.position
-        self.centerOnNode(body)
-        if arm1Source != nil{
-            let armNode = childNodeWithName("arm1") as! SKSpriteNode
-            let bodyNode = childNodeWithName("Body")!
-            let leftNode = bodyNode.childNodeWithName("topCircle")!
-            let sourcePt = childNodeWithName(arm1Source!)!.position
+        if let body = childNodeWithName("Body"){
+            self.centerOnNode(body)
+            if arm1Source != nil{
+                let armNode = childNodeWithName("arm1") as! SKSpriteNode
+                let bodyNode = childNodeWithName("Body")!
+                let leftNode = bodyNode.childNodeWithName("topCircle")!
+                let sourcePt = childNodeWithName(arm1Source!)!.position
+                
+                armNode.position = sourcePt
+                let destPt = bodyNode.convertPoint(leftNode.position, toNode: self)
+                
+                let xD = destPt.x - sourcePt.x
+                let yD = destPt.y - sourcePt.y
+                
+                let dir:CGFloat = atan2(yD, xD)
+                
+                let len = hypot(yD, xD)
+                let armLen = len+30
+                
+                armNode.zRotation = ( dir - ((90 + 45)/2)) - 0.05/// (CGFloat(M_PI) * 2) ) // CGFloat(M_PI_2)
+                armNode.size.height = armLen
+                let keepTen = 30/armLen
+                armNode.anchorPoint = CGPoint(x: 0.5, y: 1-keepTen)
+            }else{
+                let armNode = childNodeWithName("arm1") as! SKSpriteNode
+                let bodyNode = childNodeWithName("Body")!
+                let topNode = bodyNode.childNodeWithName("topCircle")!
+                armNode.position = topNode.position
+                armNode.size.height = 0
+            }
             
-            armNode.position = sourcePt
-            let destPt = bodyNode.convertPoint(leftNode.position, toNode: self)
+            if arm2Source != nil{
+                let armNode = childNodeWithName("arm2") as! SKSpriteNode
+                let bodyNode = childNodeWithName("Body")!
+                let leftNode = bodyNode.childNodeWithName("leftCircle")!
+                let sourcePt = childNodeWithName(arm2Source!)!.position
+                
+                armNode.position = sourcePt
+                let destPt = bodyNode.convertPoint(leftNode.position, toNode: self)
+                
+                let xD = destPt.x - sourcePt.x
+                let yD = destPt.y - sourcePt.y
+                
+                let dir:CGFloat = atan2(yD, xD)
+                
+                let len = hypot(yD, xD)
+                let armLen = len+30
+                
+                armNode.zRotation = ( dir - ((90 + 45)/2)) - 0.05/// (CGFloat(M_PI) * 2) ) // CGFloat(M_PI_2)
+                armNode.size.height = armLen
+                let keepTen = 30/armLen
+                armNode.anchorPoint = CGPoint(x: 0.5, y: 1-keepTen)
+            }else{
+                let armNode = childNodeWithName("arm2") as! SKSpriteNode
+                let bodyNode = childNodeWithName("Body")!
+                let leftNode = bodyNode.childNodeWithName("leftCircle")!
+                armNode.position = leftNode.position
+                armNode.size.height = 0
+            }
+            if arm3Source != nil{
+                let armNode = childNodeWithName("arm3") as! SKSpriteNode
+                let bodyNode = childNodeWithName("Body")!
+                let rightNode = bodyNode.childNodeWithName("rightCircle")!
+                let sourcePt = childNodeWithName(arm3Source!)!.position
+                
+                armNode.position = sourcePt
+                let destPt = bodyNode.convertPoint(rightNode.position, toNode: self)
+                
+                let xD = destPt.x - sourcePt.x
+                let yD = destPt.y - sourcePt.y
+                
+                let dir:CGFloat = atan2(yD, xD)
+                
+                let len = hypot(yD, xD)
+                let armLen = len+30
+                
+                armNode.zRotation = ( dir - ((90 + 45)/2)) - 0.05/// (CGFloat(M_PI) * 2) ) // CGFloat(M_PI_2)
+                armNode.size.height = armLen
+                let keepTen = 30/armLen
+                armNode.anchorPoint = CGPoint(x: 0.5, y: 1-keepTen)
+            }else{
+                let armNode = childNodeWithName("arm3") as! SKSpriteNode
+                let bodyNode = childNodeWithName("Body")!
+                let rightNode = bodyNode.childNodeWithName("rightCircle")!
+                armNode.position = rightNode.position
+                armNode.size.height = 0
+            }
             
-            let xD = destPt.x - sourcePt.x
-            let yD = destPt.y - sourcePt.y
-            
-            let dir:CGFloat = atan2(yD, xD)
-            
-            let len = hypot(yD, xD)
-            
-            
-            armNode.zRotation = ( dir - ((90 + 45)/2)) - 0.05/// (CGFloat(M_PI) * 2) ) // CGFloat(M_PI_2)
-            armNode.size.height = len
-        }else{
-            let armNode = childNodeWithName("arm1") as! SKSpriteNode
-            let bodyNode = childNodeWithName("Body")!
-            let topNode = bodyNode.childNodeWithName("topCircle")!
-            armNode.position = topNode.position
-            armNode.size.height = 0
-        }
-
-        if arm2Source != nil{
-            let armNode = childNodeWithName("arm2") as! SKSpriteNode
-            let bodyNode = childNodeWithName("Body")!
-            let leftNode = bodyNode.childNodeWithName("leftCircle")!
-            let sourcePt = childNodeWithName(arm2Source!)!.position
-            
-            armNode.position = sourcePt
-            let destPt = bodyNode.convertPoint(leftNode.position, toNode: self)
-            
-            let xD = destPt.x - sourcePt.x
-            let yD = destPt.y - sourcePt.y
-            
-            let dir:CGFloat = atan2(yD, xD)
-            
-            let len = hypot(xD, yD)
-            
-            
-            armNode.zRotation =  dir - ((90 + 45)/2)/// (CGFloat(M_PI) * 2) ) // CGFloat(M_PI_2)
-            armNode.size.height = len
-        }else{
-            let armNode = childNodeWithName("arm2") as! SKSpriteNode
-            let bodyNode = childNodeWithName("Body")!
-            let leftNode = bodyNode.childNodeWithName("leftCircle")!
-            armNode.position = leftNode.position
-            armNode.size.height = 0
-        }
-        if arm3Source != nil{
-            let armNode = childNodeWithName("arm3") as! SKSpriteNode
-            let bodyNode = childNodeWithName("Body")!
-            let rightNode = bodyNode.childNodeWithName("rightCircle")!
-            let sourcePt = childNodeWithName(arm3Source!)!.position
-            
-            armNode.position = sourcePt
-            let destPt = bodyNode.convertPoint(rightNode.position, toNode: self)
-            
-            let xD = destPt.x - sourcePt.x
-            let yD = destPt.y - sourcePt.y
-            
-            let dir:CGFloat = atan2(yD, xD)
-            
-            let len = hypot(xD, yD)
-            
-            
-            armNode.zRotation =  dir - ((90 + 45)/2)/// (CGFloat(M_PI) * 2) ) // CGFloat(M_PI_2)
-            armNode.size.height = len
-        }else{
-            let armNode = childNodeWithName("arm3") as! SKSpriteNode
-            let bodyNode = childNodeWithName("Body")!
-            let rightNode = bodyNode.childNodeWithName("rightCircle")!
-            armNode.position = rightNode.position
-            armNode.size.height = 0
-        }
-        
-        for enemy in enemyArray{
-            let offX = enemy.position.x - body.position.x
-            let offY = enemy.position.y - body.position.y
-            
-            let distance = hypot(offX, offY)
-            
-            if distance < 80{
-                self.signalDeath()
-                break
+            for enemy in enemyArray{
+                let offX = enemy.position.x - body.position.x
+                let offY = enemy.position.y - body.position.y
+                
+                let distance = hypot(offX, offY)
+                
+                if distance < 80{
+                    self.stopPresentation = true
+                    self.signalDeath()
+                    break
+                }
             }
         }
     }
@@ -419,11 +464,17 @@ class GameScene: SKScene {
     let enemySchedule = [NSTimeInterval(10),NSTimeInterval(8),NSTimeInterval(5),NSTimeInterval(5),NSTimeInterval(5),NSTimeInterval(5),NSTimeInterval(3),NSTimeInterval(3),NSTimeInterval(3),NSTimeInterval(3),NSTimeInterval(3),NSTimeInterval(1)]
     var enemyProgress:Int = 0
     func beginEnemyInvasion(){
+        if stopPresentation{
+            return
+        }
         let enemy = childNodeWithName("enemy") as! SKSpriteNode
         self.enemyArray.append(enemy)
     }
     var lastEnemyDate:NSDate = NSDate()
     func addNextEnemy(){
+        if stopPresentation{
+            return
+        }
         if self.enemyArray.count < 25{
             let enemy = childNodeWithName("enemy") as! SKSpriteNode
             

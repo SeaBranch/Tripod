@@ -29,7 +29,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BV1-FR-VrT" kind="show" id="Nws-cs-Ner"/>
+                                    <segue destination="BV1-FR-VrT" kind="showDetail" id="Nws-cs-Ner"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -47,7 +47,7 @@
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController id="BV1-FR-VrT" customClass="GameViewController" customModule="testingOutShapes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BV1-FR-VrT" customClass="GameViewController" customModule="Tripod" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="maK-i9-Uhn"/>
                         <viewControllerLayoutGuide type="bottom" id="khH-OB-KpY"/>
@@ -58,8 +58,8 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="AVo-4q-f96" kind="show" identifier="YouDiedSegue" id="i06-yV-Cr9"/>
-                        <segue destination="8Uj-Mp-hXf" kind="show" identifier="YouLivedSegue" id="XGJ-cC-RSC"/>
+                        <segue destination="AVo-4q-f96" kind="showDetail" identifier="YouDiedSegue" id="i06-yV-Cr9"/>
+                        <segue destination="8Uj-Mp-hXf" kind="showDetail" identifier="YouLivedSegue" id="XGJ-cC-RSC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
@@ -88,7 +88,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="jqd-RH-x3r" kind="show" id="Ot5-66-GuH"/>
+                                    <segue destination="jqd-RH-x3r" kind="showDetail" id="Ot5-66-GuH"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -128,7 +128,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="jqd-RH-x3r" kind="show" id="wt6-Ui-nOj"/>
+                                    <segue destination="jqd-RH-x3r" kind="showDetail" id="wt6-Ui-nOj"/>
                                 </connections>
                             </button>
                         </subviews>
