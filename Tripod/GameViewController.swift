@@ -30,11 +30,16 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.createScene()
+    }
+    
+    func createScene(){
+        print("create scene")
         if let scene = GameScene.unarchiveFromFile("GameScene") as? GameScene {
             // Configure the view.
             let skView = self.view as! SKView
-            skView.showsFPS = true
-            skView.showsNodeCount = true
+            //skView.showsFPS = true
+            //skView.showsNodeCount = true
             
             /* Sprite Kit applies additional optimizations to improve rendering performance */
             skView.ignoresSiblingOrder = true
@@ -47,12 +52,20 @@ class GameViewController: UIViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "youDied", name: "YouDiedNote", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "youLived", name: "YouLivedNote", object: nil)
     }
+    
     func youDied(){
-        
+        (self.view as! SKView).scene?.removeAllActions()
+        (self.view as! SKView).scene?.removeAllChildren()
+        (self.view as! SKView).scene?.removeFromParent()
+
         self.performSegueWithIdentifier("YouDiedSegue", sender: self)
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     func youLived(){
+        (self.view as! SKView).scene?.removeAllActions()
+        (self.view as! SKView).scene?.removeAllChildren()
+        (self.view as! SKView).scene?.removeFromParent()
+        
         self.performSegueWithIdentifier("YouLivedSegue", sender: self)
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
